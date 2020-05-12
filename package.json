@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/lucas-petruceli/api_node_solid/issues"
   },
-  "homepage": "https://github.com/lucas-petruceli/api_node_solid#readme"
+  "homepage": "https://github.com/lucas-petruceli/api_node_solid#readme",
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "typescript": "^3.8.3"
+  }
 }
