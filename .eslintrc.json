@@ -1,0 +1,6 @@
+{
+    "extends": "standard-with-typescript",
+    "parserOptions": {
+        "project":"./tsconfig.json" //avisa para o eslint q vamos usar as configs do typescript
+    }
+}
