@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lucas-petruceli/api_node_solid#readme",
   "devDependencies": {
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.13.5",
     "@typescript-eslint/eslint-plugin": "^2.32.0",
     "eslint": "^6.8.0",
@@ -26,6 +27,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.0.1",
+    "ts-jest": "^25.5.1",
     "typescript": "^3.8.3"
   }
 }
