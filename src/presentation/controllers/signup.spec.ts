@@ -1,4 +1,5 @@
 import { SignUpController } from './signup'
+import { MissingParamError } from '../error/missingParamError'
 
 describe('SignUp Controller', () => {
   test('Return statusCode 400, se nao passar o nome para rota', () => {
@@ -12,7 +13,7 @@ describe('SignUp Controller', () => {
 	}
 	const httpResponse = sut.handle(httpRequest)
 	expect(httpResponse.statusCode).toBe(400)
-	expect(httpResponse.body).toEqual(new Error('Parametros invalidos'))
+	expect(httpResponse.body).toEqual(new MissingParamError('name'))
   })
   
   test('Return statusCode 400, se nao passar o email para rota', () => {
@@ -26,6 +27,6 @@ describe('SignUp Controller', () => {
 	}
 	const httpResponse = sut.handle(httpRequest)
 	expect(httpResponse.statusCode).toBe(400)
-	expect(httpResponse.body).toEqual(new Error('Parametros invalidos'))
+	expect(httpResponse.body).toEqual(new MissingParamError('email'))
   })
 })
