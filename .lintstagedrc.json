@@ -1,6 +1,5 @@
 {
     "*.ts" : [
-        "edlint 'src/**'",
         "npm run test:staged"
     ]
 }
