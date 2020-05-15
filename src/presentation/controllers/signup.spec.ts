@@ -1,9 +1,13 @@
 import { SignUpController } from './signup'
 import { MissingParamError } from '../error/missingParamError'
 
+const makeSut = () : SignUpController => {
+	return new SignUpController()
+}
+
 describe('SignUp Controller', () => {
   test('Return statusCode 400, se nao passar o nome para rota', () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest = {
 		body: {
 			email: 'any_email@mail.com',
@@ -17,7 +21,7 @@ describe('SignUp Controller', () => {
   })
   
   test('Return statusCode 400, se nao passar o email para rota', () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest = {
 		body: {
 			name: 'any_name',
