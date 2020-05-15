@@ -1,20 +1,32 @@
 import { HttpRequest , HttpResponse } from '../protocols/httpInterface'
 import { MissingParamError } from '../error/missingParamError'
 import { Controller } from '../protocols/controllerInterface'
+import { EmailValidator } from '../protocols/emailValidatorInterface'
+import { InvalidParamError } from '../error/invalidParamError'
 
 export class SignUpController implements Controller{
+    private readonly emailValidator: EmailValidator
+
+    constructor(emailValidator: EmailValidator){
+        this.emailValidator = emailValidator
+    }
     handle(httpRequest: HttpRequest): HttpResponse {
-        if (!httpRequest.body.name) {
-            return {
-                statusCode: 400,
-                body: new MissingParamError('name')
+        const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
+        for (const field of requiredFields){
+            if(!httpRequest.body[field]){
+                return {
+                    statusCode: 400,
+                    body: new MissingParamError(field)
+                }
             }
         }
-        if (!httpRequest.body.email) {
+
+        if(!this.emailValidator.isValid(httpRequest.body.email)){
             return {
                 statusCode: 400,
-                body: new MissingParamError('email')
+                body: new InvalidParamError('email')
             }
         }
+        
     }
 }
